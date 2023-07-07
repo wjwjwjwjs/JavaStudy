@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class E02StringMethod4 {
 
-	@SuppressWarnings("null")
 	public static void main(String[] args) {
 
 		/*
@@ -20,20 +19,54 @@ public class E02StringMethod4 {
 		
 		if(a.contains("-")) {
 			String[] b = a.split("-");
+			System.out.println(b[0]);
+			System.out.println(b[1]);
 			
-			char [] t = null; 
-			if(b[0].length()==6 && b[1].length()==7) {
-				if(!(a.charAt(6) == '=')) {
+			
+			
+			  if(b[0].length()==6 && b[1].length()==7) {
+				if(!(a.charAt(6) == '-')) {
 					System.out.println("주민번호 형식 아님");
 				}
 				else{
-					for(int i=0 ; i<a.length() ; i++) {
-						t[i] = a.charAt(i);
-		
-						if(!('0'<=t[i] && t[i]<='9' && t[i] == '=')) {
-							System.out.println("주민번호 형식아님");
+					
+					// String y = b[0];
+					for(int i=0 ; i<b[0].length() ; i++) {
+//						char [] t = null;
+						char t =  b[0].charAt(i);
+						if(!('0'<=(int)t && (int)t<='9')) {
+							System.out.println("주민번호 형식 아님");
+							return;
 						}
+										
 					}
+					
+					for(int i=0 ; i<b[1].length() ; i++) {
+						char t =  b[1].charAt(i);
+						if(!('0'<=(int)t && (int)t<='9')) {
+							System.out.println("주민번호 형식 아님");
+							return;
+						}
+										
+					}
+					
+					System.out.println("주민 번호 형식임");
+					
+					if(b[1].charAt(0)%2==0) {
+						System.out.println("여자");
+					}
+					else {
+						System.out.println("남자");
+					}
+					
+					
+//					for(int i=0 ; i<a.length() ; i++) {
+//						t[i] = a.charAt(i);
+//		
+//						if(!('0'<=t[i] && t[i]<='9' && t[i] == '=')) {
+//							System.out.println("주민번호 형식아님");
+//						}
+//					}
 				}
 
 //				for(int i=0 ; i<b.length ; i++) {
@@ -45,12 +78,12 @@ public class E02StringMethod4 {
 //				}
 			}
 			
-			if(b[1].charAt(0)%2==0) {
-				System.out.println("여자");
-			}
-			else {
-				System.out.println("남자");
-			}
+//			if(b[1].charAt(0)%2==0) {
+//				System.out.println("여자");
+//			}
+//			else {
+//				System.out.println("남자");
+//			}
 		}
 		else {
 			System.out.println("주민번호 형식 아님");
