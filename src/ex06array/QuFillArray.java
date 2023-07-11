@@ -6,32 +6,66 @@ public class QuFillArray {
 
 	public static void main(String[] args) {
 
-		int[] num10 = new int[10];
+		int[] num10 = new int [10];
+//		int[] a = new int [10];
 		int sum = 0;
+//		System.out.println(num10.length);
 		
 		Scanner scanner = new Scanner(System.in);
 		
 		for(int i=0 ; i<num10.length ; i++) {
-			System.out.println((i+1)+"번째 정수 입력: ");
-			int a = scanner.nextInt();
-			sum += a;
+			
+			System.out.print(i+"번째 배열값: ");
+			num10[i] = scanner.nextInt();
+			
+			sum += num10[i];	
+			
 		}
+		System.out.println("합: "+ sum);
 		
-		for(int i=0 ; i<num10.length ; i++) {
-			for(int j=0; j<num10.length-1 ; j++) {
-				if(!(num10[i]%2==0)) {
+		
+		for(int i=0 ; i<num10.length-1 ; i++) {
+				
+				if(num10[i]<num10[i+1]) {
 					int temp;
-					temp = num10[i];
-					num10[i] = num10[i+1];
-					num10[i+1] = temp;
+					for(int j=i ; j<num10.length ; j++) {
+						temp = num10[j];
+						num10[j] = num10[j+1];
+						num10[j+1] = temp;
+						System.out.print(num10[j]+ " ");
+					}
+//					System.out.print(num10[j]+ " ");
 				}
-				System.out.print(num10[i]);
-			}
+				else {
+					System.out.print(num10[i]+ " ");
+				}
+			
 			
 		}
 		
-		System.out.println("\n합: "+ sum);
+//		for(int j=0 ; j<num10.length ; j++) {
+//			
+//			if(num10[0]<num10[1]) {
+//				int temp = num10[0];
+//				num10[0] = num10[1];
+//				num10[1] = temp;
+//				System.out.print(num10[0]);
+//			}
+//			else {
+//				System.out.print(num10[0]);
+//			}
+//		}
 		
-	}
-
+//		if(num10[0]<num10[1]) {
+//			int temp = num10[0];
+//			num10[0] = num10[1];
+//			num10[1] = temp;
+//			System.out.print(num10[0]);
+//		}
+//		else {
+//			System.out.print(num10[0]);
+//		}
+		
+		
+	}	
 }
