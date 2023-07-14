@@ -9,9 +9,15 @@ public class QuArray1To10 {
 		
 		for(int i=0; i<num10.length; i++) {
 			System.out.print(" " +(num10[i] = i+1));
-//			num10[i] = i+1;
+			num10[i] = i+1;
 			count += num10[i] ;
 		}
+		
+		
+//		for(int e : num10) {
+//			System.out.println(e+ " ");
+//			count += e;
+//		}
 		
 		System.out.println("\n배열전체요소 합: "+ count);
 		

@@ -23,6 +23,8 @@ public class QuNumberCounter {
 			if(answer[i]==4) {
 				counter[3]++;
 			}
+			
+//			counter[answer[i]-1]++;
 		}
 		
 		System.out.println("1의 갯수: " +counter[0]);
