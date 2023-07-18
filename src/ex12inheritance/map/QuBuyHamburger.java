@@ -1,39 +1,35 @@
-package ex13interface;
+package ex12inheritance.map;
 
 class Burger {
 	//멤버변수
-	/* 버거명, 가격, 패티, 소스, 야체를 표현 */
+	/* 버거명, 가격, 패티, 소스, 야체을 표현 */
 	String name;
-	private int price; 
+	private int price;
 	String pattie;
-	String sourc;
-	String vegta;
-	
-	public Burger(String name, int price, String pattie, String sourc, String vegta) {
+	String source;
+	String vege;
+	//인자생성자
+	public Burger(String name, int price, String pattie, String source, String vege) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.pattie = pattie;
-		this.sourc = sourc;
-		this.vegta = vegta;
+		this.source = source;
+		this.vege = vege;
 	}
-	
-	public int getPrice(){
+	//getter : price만 필요
+	public int getPrice() {
 		return price;
 	}
 	
-	public void showPrice(){
-		System.out.println("버거명: "+ name);
-		System.out.println("가격: "+ price);
-		System.out.println("식재료: "+ name+ sourc+ vegta);
-	}
-	
-	//인자생성자
-	
-	//getter : price만 필요
-	
 	//햄버거 정보 출력
+	void showPrice() {
+		System.out.println("이름 : " + name);
+		System.out.println("가격 : " + price);
+		System.out.println("패티, 소스, 야채 : " + pattie+ source + vege);
+	}
 	/* 버거명, 가격, 식재료 출력*/
+	
 }
 //햄버거의 기본가격 추상화 
 class HamburgerPrice {
@@ -43,47 +39,42 @@ class HamburgerPrice {
 	final int COKE = 1000;
 	final int POTATO = 1500;
 	
-	public HamburgerPrice(String a, int b, String c, String d, String e) {
-		burger = new Burger(a,b, c, d, e);
-	}
-
-	public HamburgerPrice(Burger burger1) {
-		// TODO Auto-generated constructor stub
-	}
-
-	public int showPrice() {
-		return burger.getPrice()+COKE+POTATO;
-	}
-	
-	void Fprice() {
-		System.out.println(showPrice());
-	}
-	
 	//인자생성자
+	public HamburgerPrice(Burger burger) {
+		super();
+		this.burger = burger;
+	}
+
+	public int calPrice() {
+		return burger.getPrice();
+	}
 
 	//기본가격계산
+	public void showPrice() {
+		burger.showPrice();
+		System.out.println(calPrice());
+	}
 	
 	//햄버거와 결제금액 출력
 }
 //세트가격을 추상화(기본가격을 상속)
 class SetPrice extends HamburgerPrice {
 
-	public SetPrice(String a, int b, String c, String d, String e) {
-		super(a, b, c, d, e);
-		// TODO Auto-generated constructor stub
+	public SetPrice(Burger burger) {
+		super(burger);
 	}	
 	//인자생성자
 	
-	//세트가격계산(오버라이딩)
 	@Override
-	public int showPrice() {
-		return super.showPrice();
+	public int calPrice() {
+		return super.calPrice()+COKE+POTATO;
 	}
-	//햄버거와 세트결제금액 출력(오버라이딩)	
+	//세트가격계산(오버라이딩)
+	
 	@Override
-	void Fprice() {
+	public void showPrice() {
 		// TODO Auto-generated method stub
-		super.Fprice();
+		super.showPrice();
 	}
 }
 
@@ -105,3 +96,4 @@ public class QuBuyHamburger {
 		price2.showPrice();	// 5000원
 	}
 }
+
