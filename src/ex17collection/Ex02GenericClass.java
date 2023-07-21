@@ -5,7 +5,7 @@ class Apple{
 	
 	int weight;
 	public Apple(int w) {
-		weight = 2;
+		weight = w;
 	}
 	
 	public void showInfo() {

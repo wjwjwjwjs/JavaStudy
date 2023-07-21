@@ -12,7 +12,7 @@ ArrayList<E> : List계열의 컬렉션
 - 데이터의 저장 순서를 보장한다.
 - 데이터 접근시 get() 혹은 iterator()를 이용한다.
 - Array라는 이름처럼 '배열'의 특성을 가지고 있어 index를 통한
-	저장 및 접근이 가능하다.
+	저장 및 접근이 가능하다.  
  */
 public class Ex03ArrayList1 {
 
