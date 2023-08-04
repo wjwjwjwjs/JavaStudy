@@ -19,7 +19,9 @@ public class IConnectImpl implements IConnect {
 	public Connection con; // DB 연결
 	public PreparedStatement psmt; // 동적쿼리문 실행
 	public ResultSet rs; // SELECT 실행결과반환
-//	public Stateme tatement scmt; // 프로시저 실행
+	public Statement stmt; // 프로시저 실행
+	public CallableStatement csmt;
+
 	
 	// 기본생성자
 	public IConnectImpl() {
@@ -85,8 +87,8 @@ public class IConnectImpl implements IConnect {
 			if(psmt!=null) psmt.close();
 			if(rs!=null) rs.close();
 			// 필요한 경우 활성화해서 사용하면된다.
-//			if(stmt!=null) stmt.close();
-//			if(ctmt!=null) ctmt.close();
+			if(stmt!=null) stmt.close();
+			if(csmt!=null) csmt.close();
 			System.out.println("자원 반납 완료");
 		} 
 		catch (Exception e) {
