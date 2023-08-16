@@ -26,7 +26,7 @@ class ShowThread extends Thread{
 	public void run() {
 		
 		// 100번 반복 실행한다.
-		for(int i=1; i<=100 ; i++) {
+		for(int i=1; i<=10 ; i++) {
 			System.out.println("안녕하세요.["+threadName+"]입니다."+i);
 			/* 
 			Thread 클래스의 static메서드인 sleep()을 통해

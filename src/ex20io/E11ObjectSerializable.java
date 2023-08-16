@@ -57,8 +57,7 @@ public class E11ObjectSerializable {
 			ObjectInputStream in =
 					new ObjectInputStream(
 							new FileInputStream("src/ex20io/circle.obj")
-					);
-			
+					); 
 			/* 저장시 Object기반으로 저장되므로 복원시에는 원래의
 			자료형으로 형변환(다운캐스팅) 해야한다. */
 			Circle c1 =(Circle)in.readObject();
